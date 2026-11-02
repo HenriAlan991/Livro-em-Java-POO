@@ -1,7 +1,7 @@
 package aula9b;
 
 public class Livro implements Publicacao{
-    
+
     // ATRIBUTOS
     private String titulo;
     private String autor;
@@ -9,10 +9,29 @@ public class Livro implements Publicacao{
     private int pagAtual;
     private boolean aberto;
     private String leitor;
+
     
+    // MÉTODO CONSTRUTOR
     
-    
-    
+    public Livro(
+            String titulo,
+            String autor,
+            int totPags,
+            Pessoa pessoa
+            
+    ){
+        setTitulo(titulo);
+        setAutor(autor);
+        setTotPags(totPags);
+        setPagAtual(1);
+        setAberto(false);
+        setLeitor(pessoa.getNome());
+        
+        
+    }
+
+
+
     // MÉTODOS PÚBLICOS PRÓPIOS
     public void detalhes(){
         System.out.println("--- DETALHES DO LIVRO ---");
@@ -29,13 +48,13 @@ public class Livro implements Publicacao{
         }
         System.out.println("LEITOR: " + getLeitor());
     }
-    
-    
-    
+
+
+
     // MÉTODOS PÚBLICOS DA INTERFACE
     @Override
     public void abrir() {
-        
+
     }
 
     @Override
@@ -57,7 +76,7 @@ public class Livro implements Publicacao{
     public void voltarPag(int numPags) {
 
     }
-    
+
     // MÉTODOS ESPECIAIS
     public String getTitulo() {
         return titulo;

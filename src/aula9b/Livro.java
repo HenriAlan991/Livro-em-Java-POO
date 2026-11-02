@@ -105,7 +105,7 @@ public class Livro implements Publicacao{
     @Override
     public void voltarPag(int numPags) {
         if(numPags < getTotPags() && numPags >= 1 && (getPagAtual() - numPags >= 1)){
-            setPagAtual(getPagAtual() + numPags);
+            setPagAtual(getPagAtual() - numPags);
             System.out.println("Acabei de voltar " + numPags + " ,agora estamos na página: " + getPagAtual());
 
         }

@@ -10,15 +10,15 @@ public class Livro implements Publicacao{
     private boolean aberto;
     private String leitor;
 
-    
+
     // MÉTODO CONSTRUTOR
-    
+
     public Livro(
             String titulo,
             String autor,
             int totPags,
             Pessoa pessoa
-            
+
     ){
         setTitulo(titulo);
         setAutor(autor);
@@ -26,8 +26,8 @@ public class Livro implements Publicacao{
         setPagAtual(1);
         setAberto(false);
         setLeitor(pessoa.getNome());
-        
-        
+
+
     }
 
 
@@ -54,26 +54,63 @@ public class Livro implements Publicacao{
     // MÉTODOS PÚBLICOS DA INTERFACE
     @Override
     public void abrir() {
+        if(getAberto()){
+            System.out.println("O Livro já está aberto!");
+        }
+        else{
+            setAberto(true);
+        }
 
     }
 
     @Override
     public void fechar() {
+        if(getAberto()){
+            setAberto(false);
+        }
+        else{
+            System.out.println("O Livro já está fechado!");
+        }
 
     }
 
     @Override
     public void folear(int pag) {
+        if(pag != getPagAtual() && pag <= getTotPags() && pag >= 1){
+            setPagAtual(pag);
+            System.out.println("Fooleei para á página: " + getPagAtual());
+        }
+        else{
+            System.out.println("Insira uma página válida!");
+        }
 
     }
 
     @Override
     public void avancarPag(int numPags) {
+        if(numPags < getTotPags() && numPags >= 1 && (numPags + getPagAtual() <= getTotPags()) && (numPags + getPagAtual() >= 1)){
+
+
+
+            setPagAtual(getPagAtual() + numPags);
+            System.out.println("Acabei de avançar " + numPags + " ,agora estamos na página: " + getPagAtual());
+        }
+        else{
+            System.out.println("Insira um número válido de vezes!");
+        }
 
     }
 
     @Override
     public void voltarPag(int numPags) {
+        if(numPags < getTotPags() && numPags >= 1 && (getPagAtual() - numPags >= 1)){
+            System.out.println("Acabei de voltar " + numPags + " ,agora estamos na página: " + getPagAtual());
+            
+        }
+        else{
+            System.out.println("Insira um número válido de vezes!");
+        }
+
 
     }
 

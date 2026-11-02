@@ -6,12 +6,12 @@ public class Pessoa {
     // MÉTODO CONSTRUTOS
     public Pessoa(
             String nome,
-            int idade,
-            String sexo
+            int idade
+
     ){
         setNome(nome);
         setIdade(idade);
-        setSexo(sexo);
+
     }
 
     // MÉTODOS PÚBLICOS
